@@ -1,4 +1,4 @@
-package notebook.mapper;
+package notebook.util.mapper;
 
 /**
  * Конвертер моделей из одного типа в другой.
