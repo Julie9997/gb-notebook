@@ -1,6 +1,7 @@
 package notebook.repository.impl;
 
 import notebook.util.DBConnector;
+import notebook.util.logger.Log;
 import notebook.util.mapper.impl.UserMapper;
 import notebook.model.User;
 import notebook.repository.GBRepository;
@@ -10,10 +11,12 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
+import java.util.logging.Logger;
 
 public class UserRepository implements GBRepository {
     private final UserMapper mapper;
     private final DBConnector connector;
+    private static final Logger log = Log.log(UserRepository.class.getName());
 
     public UserRepository(DBConnector connector, String sep) {
         this.mapper = new UserMapper(sep);

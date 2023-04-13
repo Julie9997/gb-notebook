@@ -17,6 +17,39 @@ public class User {
         this.id = id;
     }
 
+    public User(Builder builder){
+        this.firstName = builder.firstName;
+        this.lastName = builder.lastName;
+        this.phone = builder.phone;
+    }
+
+    public static Builder builder() {
+        return new Builder();
+    }
+
+    public static class Builder{
+        private String firstName;
+        private String lastName;
+        private String phone;
+
+        public Builder firstName(String firstName){
+            this.firstName = firstName;
+            return this;
+        }
+        public Builder lastName(String lastName){
+            this.lastName = lastName;
+            return this;
+        }
+        public Builder phone(String phone){
+            this.phone = phone;
+            return this;
+        }
+
+        public User build(){
+            return new User(this);
+        }
+    }
+
     public Long getId() {
         return id;
     }
@@ -51,6 +84,6 @@ public class User {
 
     @Override
     public String toString() {
-        return String.format("Идентафикатор: %s\nИмя: %s,\nФамилия: %s,\nТелефон: %s", id, firstName, lastName, phone);
+        return String.format("РљРѕРЅС‚Р°РєС‚: %s\nРРјСЏ: %s,\nР¤Р°РјРёР»РёСЏ: %s,\nРўРµР»РµС„РѕРЅ: %s", id, firstName, lastName, phone);
     }
 }
